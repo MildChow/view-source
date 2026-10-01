@@ -1,60 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Door at the End of the Hall</title>
 
-  <head>
-    <meta charset="utf-8">
-    <title>BE CREATIVE</title>
+  <style>
+    body {
+      margin: 0;
+      background: #101018;
+      color: #eee;
+      font-family: Georgia, serif;
+      line-height: 1.7;
+    }
 
-  <body>
+    .container {
+      max-width: 750px;
+      margin: 80px auto;
+      padding: 30px;
+    }
 
-<h1>BE CREATIVE!!!</h1>
-    
- <style>
-   body {
-     font-family:Helvetica, Arial, sans-serif;
-     background-color: red;
-     color: white;
-     margin: 40px;
-   }
+    h1 {
+      text-align: center;
+      color: #c9a7ff;
+      font-size: 2.5rem;
+    }
 
-   div {
-     font-size: 45px;
-     font-weight: bold;
-     margin-top: 30px;
-     margin-bottom:30px;
-   }
+    .story {
+      background: #191923;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(150, 100, 255, 0.15);
+    }
 
-   h1 {
-     font-size: 180px;
-     letter-spacing: 20px;
-     margin-top: 20px;
-     margin-bottom: 20px;
-   }
+    p {
+      font-size: 1.15rem;
+    }
 
-   .offset {
-     margin-left: 180px;
-     transform: rotate(-4deg);
-   }
+    .choices {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-   h1 span {
-     display: inline-block;
-     transform: rotate(12deg);
-   }
-   </style>
-  </head>
+    button {
+      padding: 14px 18px;
+      border: 1px solid #8d6bc7;
+      border-radius: 8px;
+      background: #29233a;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-  <body>
+    button:hover {
+      background: #49376a;
+      transform: translateY(-2px);
+    }
 
-    <div>INFORMATION</div>
-    <div>INFORMATION</div>
-    <div>INFORMATION</div>
+    .restart {
+      margin-top: 25px;
+      background: transparent;
+      border-color: #555;
+    }
 
+    .restart:hover {
+      background: #222;
+    }
+  </style>
+</head>
 
-    <h1>
-      F<span>R</span>E<span style="transform: rotate(-12deg);">E</span>
-    </h1>
+<body>
 
-    <div class="offset">SHOULD BE</div>
+  <div class="container">
+    <h1>The Door at the End of the Hall</h1>
+
+    <div class="story">
+      <div id="storyText"></div>
+      <div id="choices" class="choices"></div>
+    </div>
+  </div>
+
+  <script>
+    const story = {
+
+      start: {
+        text: `
+          <p>You wake to the sound of someone knocking.</p>
+
+          <p>Three slow knocks.</p>
+
+          <p>You sit up in bed and look toward your bedroom door. 
+          The hallway outside is completely dark.</p>
+
+          <p>Then the knocking comes again.</p>
+
+          <p>But this time, it isn't coming from your front door.</p>
+
+          <p>It is coming from the door at the end of the hall.</p>
+        `,
+        choices: [
+          { text: "Open your bedroom door.", next: "hallway" },
+          { text: "Stay in bed and wait.", next: "wait" }
+        ]
+      },
+
+      hallway: {
+        text: `
+          <p>You slowly open the door.</p>
+
+          <p>The hallway seems longer than it should be. 
+          At the far end stands a door you have never seen before.</p>
+
+          <p>There is something strange about it.</p>
+
+          <p>Your name is carved into the wood.</p>
+        `,
+        choices: [
+          { text: "Walk toward the door.", next: "door" },
+          { text: "Go back to your bedroom.", next: "bedroom" }
+        ]
+      },
+
+      wait: {
+        text: `
+          <p>You pull the blankets over your head.</p>
+
+          <p>The knocking stops.</p>
+
+          <p>For a moment, everything is silent.</p>
+
+          <p>Then you hear a voice from the hallway.</p>
+
+          <p><em>"You're supposed to remember."</em></p>
+        `,
+        choices: [
+          { text: "Go into the hallway.", next: "hallway" },
+          { text: "Keep hiding.", next: "hiding" }
+        ]
+      },
+
+      bedroom: {
+        text: `
+          <p>You shut the door and return to bed.</p>
+
+          <p>You tell yourself that none of this is real.</p>
+
+          <p>Then you notice something sitting on your pillow.</p>
+
+          <p>A small brass key.</p>
+
+          <p>Attached to it is a piece of paper:</p>
+
+          <p><em>"You already opened it once."</em></p>
+        `,
+        choices: [
+          { text: "Take the key to the mysterious door.", next: "door" },
+          { text: "Throw the key away.", next: "throwKey" }
+        ]
+      },
+
+      door: {
+        text: `
+          <p>You stand before the door.</p>
+
+          <p>The knocking has stopped.</p>
+
+          <p>You reach for the handle.</p>
+
+          <p>It turns before you touch it.</p>
+
+          <p>The door slowly opens.</p>
+
+          <p>On the other side is your bedroom.</p>
+
+          <p>Except someone is sleeping in your bed.</p>
+        `,
+        choices: [
+          { text: "Walk into the room.", next: "room" },
+          { text: "Close the door.", next: "closeDoor" }
+        ]
+      },
+
+      room: {
+        text: `
+          <p>You step through.</p>
+
+          <p>The sleeping figure suddenly opens its eyes.</p>
+
+          <p>It looks exactly like you.</p>
+
+          <p>"You're finally back," it says.</p>
+
+          <p>You look behind you.</p>
+
+          <p>The door has disappeared.</p>
+
+          <p><strong>THE END</strong></p>
+        `,
+        choices: []
+      },
+
+      closeDoor: {
+        text: `
+          <p>You slam the door shut.</p>
+
+          <p>The hallway is gone.</p>
+
+          <p>You are standing in your bedroom.</p>
+
+          <p>Morning sunlight shines through the window.</p>
+
+          <p>For a moment, you think everything is normal.</p>
+
+          <p>Then you notice three scratches on the inside of your bedroom door.</p>
+
+          <p>They spell your name.</p>
+
+          <p><strong>THE END</strong></p>
+        `,
+        choices: []
+      },
+
+      hiding: {
+        text: `
+          <p>You refuse to move.</p>
+
+          <p>The voice speaks again.</p>
+
+          <p><em>"If you don't remember, I'll have to show you."</em></p>
+
+          <p>Your bedroom door opens by itself.</p>
+
+          <p>Standing in the doorway is you.</p>
+
+          <p><strong>THE END</strong></p>
+        `,
+        choices: []
+      },
+
+      throwKey: {
+        text: `
+          <p>You throw the key into the trash.</p>
+
+          <p>It disappears.</p>
+
+          <p>You breathe a sigh of relief.</p>
+
+          <p>Then you hear the sound of metal falling onto the floor.</p>
+
+          <p>You look down.</p>
+
+          <p>The key is back in your hand.</p>
+
+          <p><strong>THE END</strong></p>
+        `,
+        choices: []
+      }
+    };
+
+    function showScene(sceneName) {
+      const scene = story[sceneName];
+
+      document.getElementById("storyText").innerHTML = scene.text;
+
+      const choices = document.getElementById("choices");
+      choices.innerHTML = "";
+
+      scene.choices.forEach(choice => {
+        const button = document.createElement("button");
+
+        button.textContent = choice.text;
+
+        button.onclick = () => {
+          showScene(choice.next);
+        };
+
+        choices.appendChild(button);
+      });
+
+      if (scene.choices.length === 0) {
+        const restart = document.createElement("button");
+
+        restart.textContent = "Start Over";
+        restart.className = "restart";
+
+        restart.onclick = () => {
+          showScene("start");
+        };
+
+        choices.appendChild(restart);
+      }
+    }
+
+    showScene("start");
+  </script>
+
+</body>
+</html>
 
     
  
