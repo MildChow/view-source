@@ -1,305 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Door at the End of the Hall</title>
+    <title>The Weird Door</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #101018;
-      color: #eee;
-      font-family: Georgia, serif;
-      line-height: 1.7;
-    }
+    <style>
+        body {
+            background-color: #eeeeee;
+            font-family: Arial;
+            color: #222222;
+            margin: 50px;
+        }
 
-    .container {
-      max-width: 750px;
-      margin: 80px auto;
-      padding: 30px;
-    }
+        .story {
+            width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border: 2px solid black;
+        }
 
-    h1 {
-      text-align: center;
-      color: #c9a7ff;
-      font-size: 2.5rem;
-    }
-
-    .story {
-      background: #191923;
-      padding: 35px;
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(150, 100, 255, 0.15);
-    }
-
-    p {
-      font-size: 1.15rem;
-    }
-
-    .choices {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    button {
-      padding: 14px 18px;
-      border: 1px solid #8d6bc7;
-      border-radius: 8px;
-      background: #29233a;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #49376a;
-      transform: translateY(-2px);
-    }
-
-    .restart {
-      margin-top: 25px;
-      background: transparent;
-      border-color: #555;
-    }
-
-    .restart:hover {
-      background: #222;
-    }
-  </style>
+        a {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>The Door at the End of the Hall</h1>
+<div class="story">
 
-    <div class="story">
-      <div id="storyText"></div>
-      <div id="choices" class="choices"></div>
+    <h1>The Door</h1>
+
+    <p>
+        I was walking home when I saw a door in the middle of the
+        sidewalk.
+    </p>
+
+    <p>
+        It wasn't attached to anything. Just a door.
+    </p>
+
+    <p>
+        I probably should have kept walking, but obviously I didn't.
+    </p>
+
+    <p>
+        <a href="#open">I opened the door.</a>
+    </p>
+
+    <p>
+        <a href="#leave">I decided to leave.</a>
+    </p>
+
+
+    <div id="open">
+        <h2>Behind the Door</h2>
+
+        <p>
+            There was a hallway behind it. It was really long and
+            there were no lights.
+        </p>
+
+        <p>
+            I could hear something at the end.
+        </p>
+
+        <p>
+            <a href="#walk">I walked down the hallway.</a>
+        </p>
+
+        <p>
+            <a href="#close">I closed the door.</a>
+        </p>
     </div>
-  </div>
 
-  <script>
-    const story = {
 
-      start: {
-        text: `
-          <p>You wake to the sound of someone knocking.</p>
+    <div id="walk">
+        <h2>The Hallway</h2>
 
-          <p>Three slow knocks.</p>
+        <p>
+            I walked for what felt like forever.
+        </p>
 
-          <p>You sit up in bed and look toward your bedroom door. 
-          The hallway outside is completely dark.</p>
+        <p>
+            Then I saw a window.
+        </p>
 
-          <p>Then the knocking comes again.</p>
+        <p>
+            Outside the window was my house.
+        </p>
 
-          <p>But this time, it isn't coming from your front door.</p>
+        <p>
+            The weird part was that I could see myself sitting
+            inside my bedroom.
+        </p>
 
-          <p>It is coming from the door at the end of the hall.</p>
-        `,
-        choices: [
-          { text: "Open your bedroom door.", next: "hallway" },
-          { text: "Stay in bed and wait.", next: "wait" }
-        ]
-      },
+        <p>
+            <a href="#look">I looked closer.</a>
+        </p>
+    </div>
 
-      hallway: {
-        text: `
-          <p>You slowly open the door.</p>
 
-          <p>The hallway seems longer than it should be. 
-          At the far end stands a door you have never seen before.</p>
+    <div id="look">
+        <h2>My Room</h2>
 
-          <p>There is something strange about it.</p>
+        <p>
+            The person sitting in my room looked up at the window.
+        </p>
 
-          <p>Your name is carved into the wood.</p>
-        `,
-        choices: [
-          { text: "Walk toward the door.", next: "door" },
-          { text: "Go back to your bedroom.", next: "bedroom" }
-        ]
-      },
+        <p>
+            It was me.
+        </p>
 
-      wait: {
-        text: `
-          <p>You pull the blankets over your head.</p>
+        <p>
+            Then the other me smiled.
+        </p>
 
-          <p>The knocking stops.</p>
+        <p>
+            I decided I had seen enough.
+        </p>
 
-          <p>For a moment, everything is silent.</p>
+        <p>
+            <a href="#end">I ran back.</a>
+        </p>
+    </div>
 
-          <p>Then you hear a voice from the hallway.</p>
 
-          <p><em>"You're supposed to remember."</em></p>
-        `,
-        choices: [
-          { text: "Go into the hallway.", next: "hallway" },
-          { text: "Keep hiding.", next: "hiding" }
-        ]
-      },
+    <div id="close">
+        <h2>The Door Closes</h2>
 
-      bedroom: {
-        text: `
-          <p>You shut the door and return to bed.</p>
+        <p>
+            I slammed the door shut.
+        </p>
 
-          <p>You tell yourself that none of this is real.</p>
+        <p>
+            When I looked again, there was nothing there.
+        </p>
 
-          <p>Then you notice something sitting on your pillow.</p>
+        <p>
+            Just the sidewalk.
+        </p>
 
-          <p>A small brass key.</p>
+        <p>
+            I went home and tried not to think about it.
+        </p>
 
-          <p>Attached to it is a piece of paper:</p>
+        <p>
+            <a href="#end">End.</a>
+        </p>
+    </div>
 
-          <p><em>"You already opened it once."</em></p>
-        `,
-        choices: [
-          { text: "Take the key to the mysterious door.", next: "door" },
-          { text: "Throw the key away.", next: "throwKey" }
-        ]
-      },
 
-      door: {
-        text: `
-          <p>You stand before the door.</p>
+    <div id="leave">
+        <h2>Walking Away</h2>
 
-          <p>The knocking has stopped.</p>
+        <p>
+            I decided that finding a random door in the sidewalk
+            was probably not my problem.
+        </p>
 
-          <p>You reach for the handle.</p>
+        <p>
+            So I walked home.
+        </p>
 
-          <p>It turns before you touch it.</p>
+        <p>
+            Everything was normal.
+        </p>
 
-          <p>The door slowly opens.</p>
+        <p>
+            Mostly.
+        </p>
 
-          <p>On the other side is your bedroom.</p>
+        <p>
+            When I got to my bedroom, there was a door in the wall
+            that wasn't there before.
+        </p>
 
-          <p>Except someone is sleeping in your bed.</p>
-        `,
-        choices: [
-          { text: "Walk into the room.", next: "room" },
-          { text: "Close the door.", next: "closeDoor" }
-        ]
-      },
+        <p>
+            <a href="#open">I opened it.</a>
+        </p>
+    </div>
 
-      room: {
-        text: `
-          <p>You step through.</p>
 
-          <p>The sleeping figure suddenly opens its eyes.</p>
+    <div id="end">
+        <h2>The End</h2>
 
-          <p>It looks exactly like you.</p>
+        <p>
+            I don't really know what happened after that.
+        </p>
 
-          <p>"You're finally back," it says.</p>
+        <p>
+            Maybe I should have never opened the door.
+        </p>
 
-          <p>You look behind you.</p>
+        <p>
+            But I guess that's what happens when you get curious.
+        </p>
+    </div>
 
-          <p>The door has disappeared.</p>
-
-          <p><strong>THE END</strong></p>
-        `,
-        choices: []
-      },
-
-      closeDoor: {
-        text: `
-          <p>You slam the door shut.</p>
-
-          <p>The hallway is gone.</p>
-
-          <p>You are standing in your bedroom.</p>
-
-          <p>Morning sunlight shines through the window.</p>
-
-          <p>For a moment, you think everything is normal.</p>
-
-          <p>Then you notice three scratches on the inside of your bedroom door.</p>
-
-          <p>They spell your name.</p>
-
-          <p><strong>THE END</strong></p>
-        `,
-        choices: []
-      },
-
-      hiding: {
-        text: `
-          <p>You refuse to move.</p>
-
-          <p>The voice speaks again.</p>
-
-          <p><em>"If you don't remember, I'll have to show you."</em></p>
-
-          <p>Your bedroom door opens by itself.</p>
-
-          <p>Standing in the doorway is you.</p>
-
-          <p><strong>THE END</strong></p>
-        `,
-        choices: []
-      },
-
-      throwKey: {
-        text: `
-          <p>You throw the key into the trash.</p>
-
-          <p>It disappears.</p>
-
-          <p>You breathe a sigh of relief.</p>
-
-          <p>Then you hear the sound of metal falling onto the floor.</p>
-
-          <p>You look down.</p>
-
-          <p>The key is back in your hand.</p>
-
-          <p><strong>THE END</strong></p>
-        `,
-        choices: []
-      }
-    };
-
-    function showScene(sceneName) {
-      const scene = story[sceneName];
-
-      document.getElementById("storyText").innerHTML = scene.text;
-
-      const choices = document.getElementById("choices");
-      choices.innerHTML = "";
-
-      scene.choices.forEach(choice => {
-        const button = document.createElement("button");
-
-        button.textContent = choice.text;
-
-        button.onclick = () => {
-          showScene(choice.next);
-        };
-
-        choices.appendChild(button);
-      });
-
-      if (scene.choices.length === 0) {
-        const restart = document.createElement("button");
-
-        restart.textContent = "Start Over";
-        restart.className = "restart";
-
-        restart.onclick = () => {
-          showScene("start");
-        };
-
-        choices.appendChild(restart);
-      }
-    }
-
-    showScene("start");
-  </script>
+</div>
 
 </body>
 </html>
-
-    
- 
