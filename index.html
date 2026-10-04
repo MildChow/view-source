@@ -1,204 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Weird Door</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Door at Midnight</title>
 
-    <style>
-        body {
-            background-color: #eeeeee;
-            font-family: Arial;
-            color: #222222;
-            margin: 50px;
-        }
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: Georgia, serif;
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 20px;
+      line-height: 1.8;
+    }
 
-        .story {
-            width: 600px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border: 2px solid black;
-        }
+    h1 {
+      color: #b9a7ff;
+      text-align: center;
+    }
 
-        a {
-            color: blue;
-        }
-    </style>
+    .story {
+      font-size: 1.2rem;
+    }
+
+    a {
+      color: #7dd3fc;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: #f0abfc;
+    }
+
+    .ending {
+      color: #fca5a5;
+      font-style: italic;
+    }
+
+    button {
+      background: #333;
+      color: white;
+      border: 1px solid #777;
+      padding: 8px 15px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="story">
+  <h1>The Door at Midnight</h1>
 
-    <h1>The Door</h1>
-
+  <div id="story" class="story">
     <p>
-        I was walking home when I saw a door in the middle of the
-        sidewalk.
+      At exactly midnight, you hear three knocks on your bedroom door.
+      You live alone.
     </p>
 
     <p>
-        It wasn't attached to anything. Just a door.
+      You can either
+      <a onclick="showStory('open')">open the door</a>
+      or
+      <a onclick="showStory('window')">look out the window</a>.
     </p>
+  </div>
 
-    <p>
-        I probably should have kept walking, but obviously I didn't.
-    </p>
+  <script>
+    function showStory(choice) {
 
-    <p>
-        <a href="#open">I opened the door.</a>
-    </p>
+      const story = document.getElementById("story");
 
-    <p>
-        <a href="#leave">I decided to leave.</a>
-    </p>
+      if (choice === "open") {
 
+        story.innerHTML = `
+          <p>
+            You slowly open the door.
+          </p>
 
-    <div id="open">
-        <h2>Behind the Door</h2>
+          <p>
+            Nobody is standing there. Instead, you find a small
+            black envelope lying on the floor.
+          </p>
 
-        <p>
-            There was a hallway behind it. It was really long and
-            there were no lights.
-        </p>
+          <p>
+            You can
+            <a onclick="showStory('letter')">open the envelope</a>
+            or
+            <a onclick="showStory('ignore')">leave it alone</a>.
+          </p>
+        `;
 
-        <p>
-            I could hear something at the end.
-        </p>
+      } else if (choice === "window") {
 
-        <p>
-            <a href="#walk">I walked down the hallway.</a>
-        </p>
+        story.innerHTML = `
+          <p>
+            You pull the curtain aside.
+          </p>
 
-        <p>
-            <a href="#close">I closed the door.</a>
-        </p>
-    </div>
+          <p>
+            Across the street, a person is standing beneath a
+            flickering streetlight.
+          </p>
 
+          <p>
+            They are looking directly at your window.
+          </p>
 
-    <div id="walk">
-        <h2>The Hallway</h2>
+          <p>
+            You can
+            <a onclick="showStory('wave')">wave at them</a>
+            or
+            <a onclick="showStory('hide')">turn off the lights and hide</a>.
+          </p>
+        `;
 
-        <p>
-            I walked for what felt like forever.
-        </p>
+      } else if (choice === "letter") {
 
-        <p>
-            Then I saw a window.
-        </p>
+        story.innerHTML = `
+          <p>
+            Inside the envelope is a photograph of your bedroom.
+          </p>
 
-        <p>
-            Outside the window was my house.
-        </p>
+          <p>
+            The photograph was taken from inside your room.
+          </p>
 
-        <p>
-            The weird part was that I could see myself sitting
-            inside my bedroom.
-        </p>
+          <p class="ending">
+            On the back, someone has written:
+            "I'm still here."
+          </p>
 
-        <p>
-            <a href="#look">I looked closer.</a>
-        </p>
-    </div>
+          <button onclick="location.reload()">Start Again</button>
+        `;
 
+      } else if (choice === "ignore") {
 
-    <div id="look">
-        <h2>My Room</h2>
+        story.innerHTML = `
+          <p>
+            You decide to leave the envelope where it is.
+          </p>
 
-        <p>
-            The person sitting in my room looked up at the window.
-        </p>
+          <p>
+            Three more knocks echo through the apartment.
+          </p>
 
-        <p>
-            It was me.
-        </p>
+          <p class="ending">
+            This time, they come from inside your bedroom.
+          </p>
 
-        <p>
-            Then the other me smiled.
-        </p>
+          <button onclick="location.reload()">Start Again</button>
+        `;
 
-        <p>
-            I decided I had seen enough.
-        </p>
+      } else if (choice === "wave") {
 
-        <p>
-            <a href="#end">I ran back.</a>
-        </p>
-    </div>
+        story.innerHTML = `
+          <p>
+            You raise your hand and wave.
+          </p>
 
+          <p>
+            The stranger waves back.
+          </p>
 
-    <div id="close">
-        <h2>The Door Closes</h2>
+          <p>
+            Then your phone vibrates.
+          </p>
 
-        <p>
-            I slammed the door shut.
-        </p>
+          <p class="ending">
+            A message appears from an unknown number:
+            "Don't wave back."
+          </p>
 
-        <p>
-            When I looked again, there was nothing there.
-        </p>
+          <button onclick="location.reload()">Start Again</button>
+        `;
 
-        <p>
-            Just the sidewalk.
-        </p>
+      } else if (choice === "hide") {
 
-        <p>
-            I went home and tried not to think about it.
-        </p>
+        story.innerHTML = `
+          <p>
+            You turn off every light and crouch beneath the window.
+          </p>
 
-        <p>
-            <a href="#end">End.</a>
-        </p>
-    </div>
+          <p>
+            A few seconds pass.
+          </p>
 
+          <p>
+            Then you hear three knocks.
+          </p>
 
-    <div id="leave">
-        <h2>Walking Away</h2>
+          <p class="ending">
+            Not from the front door.
+            From the window behind you.
+          </p>
 
-        <p>
-            I decided that finding a random door in the sidewalk
-            was probably not my problem.
-        </p>
-
-        <p>
-            So I walked home.
-        </p>
-
-        <p>
-            Everything was normal.
-        </p>
-
-        <p>
-            Mostly.
-        </p>
-
-        <p>
-            When I got to my bedroom, there was a door in the wall
-            that wasn't there before.
-        </p>
-
-        <p>
-            <a href="#open">I opened it.</a>
-        </p>
-    </div>
-
-
-    <div id="end">
-        <h2>The End</h2>
-
-        <p>
-            I don't really know what happened after that.
-        </p>
-
-        <p>
-            Maybe I should have never opened the door.
-        </p>
-
-        <p>
-            But I guess that's what happens when you get curious.
-        </p>
-    </div>
-
-</div>
+          <button onclick="location.reload()">Start Again</button>
+        `;
+      }
+    }
+  </script>
 
 </body>
 </html>
