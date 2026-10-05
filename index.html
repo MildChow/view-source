@@ -3,532 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Locked Room</title>
+    <title>The Door in the Woods</title>
 
     <style>
         body {
-            margin: 0;
-            background: #111;
-            color: #e8e8e8;
             font-family: Georgia, serif;
-            line-height: 1.7;
-        }
-
-        .container {
+            background: #111;
+            color: #eee;
             max-width: 800px;
-            margin: 60px auto;
-            padding: 30px;
-            background: #1c1c1c;
-            border: 1px solid #444;
-            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+            margin: auto;
+            padding: 50px 25px;
+            line-height: 1.8;
         }
 
         h1 {
-            color: #c9a227;
-            text-align: center;
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            color: #c9a227;
-        }
-
-        .story {
-            font-size: 1.15rem;
+            color: #d4af37;
         }
 
         a {
-            color: #d6b54c;
+            color: #66ccff;
             text-decoration: none;
-            font-weight: bold;
         }
 
         a:hover {
-            color: white;
             text-decoration: underline;
+            color: #fff;
         }
 
-        .choice {
-            margin: 20px 0;
-            padding: 15px;
-            border-left: 3px solid #c9a227;
-            background: #252525;
-        }
-
-        .clue {
-            color: #aaa;
-            font-style: italic;
-        }
-
-        .ending {
-            text-align: center;
-            color: #c9a227;
-            font-size: 1.4rem;
+        .story {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #000;
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="story">
 
-    <h1>The Locked Room</h1>
+    <!-- Beginning -->
+    <section id="start">
+        <h1>The Door in the Woods</h1>
 
-    <!-- START -->
-    <section id="start" class="story">
         <p>
-            The rain had been falling for three hours when you arrived at
-            Blackwood Manor.
+            Maya had been walking through the woods for nearly an hour
+            when she saw something that shouldn't have been there.
         </p>
 
         <p>
-            At exactly midnight, the old grandfather clock stopped.
+            Between two enormous trees stood an old wooden door.
+            There was no wall around it. Just a door, standing alone.
         </p>
 
         <p>
-            Then came the scream.
+            Maya reached toward the handle, then stopped.
+            She had two choices.
         </p>
 
         <p>
-            You follow the sound upstairs and discover Mr. Blackwood,
-            the owner of the mansion, lying motionless inside his study.
+            <a href="#open">Open the door</a>
+            or
+            <a href="#leave">Walk away</a>.
         </p>
-
-        <p>
-            The strange part?
-        </p>
-
-        <p>
-            The study is locked from the inside.
-        </p>
-
-        <p>
-            There are no open windows. No secret passage. No weapon.
-        </p>
-
-        <p>
-            Three people were in the mansion tonight.
-        </p>
-
-        <ul>
-            <li>Mr. Blackwood's daughter, Clara</li>
-            <li>The butler, Thomas</li>
-            <li>The gardener, Edward</li>
-        </ul>
-
-        <p>
-            Someone is lying.
-        </p>
-
-        <div class="choice">
-            <a href="#clock">Examine the grandfather clock.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#study">Investigate the study.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#clara">Question Clara.</a>
-        </div>
     </section>
 
 
-    <!-- CLOCK -->
-    <section id="clock" class="story">
-        <h2>The Grandfather Clock</h2>
+    <!-- Choice 1 -->
+    <section id="open">
+        <h2>The Other Side</h2>
 
         <p>
-            You examine the clock carefully.
-        </p>
-
-        <p>
-            The hands are frozen at exactly 12:00.
-            But something catches your attention.
+            Maya slowly turned the handle.
+            The door opened with a long, quiet creak.
         </p>
 
         <p>
-            A tiny smear of red paint covers the minute hand.
-        </p>
-
-        <p class="clue">
-            Clue discovered: Red paint on the clock.
+            On the other side was her childhood bedroom.
+            Everything looked exactly as it had twenty years ago.
         </p>
 
         <p>
-            You remember seeing a freshly painted red door somewhere in
-            the mansion.
+            On the desk was a photograph of Maya as a child.
+            Beside it was a note with her name written on it.
         </p>
 
-        <div class="choice">
-            <a href="#study">Return to the study.</a>
-        </div>
+        <p>
+            She could:
+        </p>
 
-        <div class="choice">
-            <a href="#garden">Investigate the garden.</a>
-        </div>
+        <p>
+            <a href="#note">Read the note</a>
+            or
+            <a href="#close">Close the door</a>.
+        </p>
     </section>
 
 
-    <!-- STUDY -->
-    <section id="study" class="story">
-        <h2>The Locked Study</h2>
+    <!-- Choice 2 -->
+    <section id="leave">
+        <h2>The Path Home</h2>
 
         <p>
-            You inspect the room.
-        </p>
-
-        <p>
-            The body lies beside the desk. On the desk is an empty glass,
-            an open book, and a small brass key.
+            Maya decided that some mysteries were better left alone.
+            She turned around and followed the trail back through the woods.
         </p>
 
         <p>
-            The window is locked.
+            But after a few minutes, she realized something strange.
+            The path she had followed was no longer there.
         </p>
 
         <p>
-            You notice something unusual beneath the desk.
+            Instead, she found another door.
         </p>
 
         <p>
-            A thin piece of black thread is caught around one of the legs.
+            <a href="#open">Open it</a>
+            or
+            <a href="#end">Keep walking</a>.
         </p>
-
-        <p class="clue">
-            Clue discovered: Black thread.
-        </p>
-
-        <div class="choice">
-            <a href="#key">Examine the brass key.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#clara">Question Clara about the room.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#butler">Question Thomas, the butler.</a>
-        </div>
     </section>
 
 
-    <!-- KEY -->
-    <section id="key" class="story">
-        <h2>The Brass Key</h2>
+    <!-- Choice 3 -->
+    <section id="note">
+        <h2>The Note</h2>
 
         <p>
-            The key doesn't belong to the study.
+            Maya unfolded the note.
         </p>
 
         <p>
-            You recognize its shape.
+            "If you're reading this, you finally remembered."
         </p>
 
         <p>
-            It belongs to the small storage room beside the kitchen.
+            Maya stared at the words.
+            She suddenly remembered the woods, the door,
+            and a promise she had made as a child.
         </p>
 
         <p>
-            Why would Mr. Blackwood have the key in his study?
+            At the bottom of the page was another choice:
         </p>
 
-        <div class="choice">
-            <a href="#storage">Go to the storage room.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#butler">Ask Thomas about the key.</a>
-        </div>
+        <p>
+            <a href="#secret">Remember everything</a>
+            or
+            <a href="#close">Forget</a>.
+        </p>
     </section>
 
 
-    <!-- CLARA -->
-    <section id="clara" class="story">
-        <h2>Clara</h2>
+    <!-- Choice 4 -->
+    <section id="close">
+        <h2>The Choice</h2>
 
         <p>
-            Clara sits quietly in the hallway.
-        </p>
-
-        <p>
-            "I heard the scream," she says. "But I never went near the
-            study."
+            Maya stepped backward and closed the door.
+            The moment it shut, the forest became completely silent.
         </p>
 
         <p>
-            You notice that her dress has a small tear near the sleeve.
+            When she turned around, the door was gone.
         </p>
 
         <p>
-            There is a tiny piece of black thread hanging from it.
-        </p>
-
-        <p class="clue">
-            Clue discovered: Clara's dress contains black thread.
+            Perhaps some doors only appear once.
         </p>
 
         <p>
-            Clara notices you staring at the tear.
+            <a href="#start">Start the story again</a>
         </p>
-
-        <p>
-            "I caught it on the garden gate," she says quickly.
-        </p>
-
-        <div class="choice">
-            <a href="#garden">Check the garden gate.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#ending-wrong">Accuse Clara.</a>
-        </div>
     </section>
 
 
-    <!-- BUTLER -->
-    <section id="butler" class="story">
-        <h2>Thomas the Butler</h2>
+    <!-- Ending 1 -->
+    <section id="secret">
+        <h2>The Memory</h2>
 
         <p>
-            Thomas looks nervous when you mention the key.
+            Maya remembered.
         </p>
 
         <p>
-            "Mr. Blackwood always kept that key in the study," he says.
+            She remembered that she had built the door herself
+            when she was eight years old.
         </p>
 
         <p>
-            You know this is a lie.
+            She remembered making a promise to return.
+            And now she understood why.
         </p>
 
         <p>
-            The key clearly belongs to the storage room.
+            The door wasn't leading into the past.
         </p>
 
         <p>
-            "Perhaps you should ask the gardener," Thomas says.
+            It was leading somewhere else.
         </p>
 
         <p>
-            He quickly walks away.
+            <strong>To be continued...</strong>
         </p>
 
-        <div class="choice">
-            <a href="#garden">Follow Thomas toward the garden.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#storage">Investigate the storage room.</a>
-        </div>
+        <p>
+            <a href="#start">Return to the beginning</a>
+        </p>
     </section>
 
 
-    <!-- GARDEN -->
-    <section id="garden" class="story">
-        <h2>The Garden Gate</h2>
+    <!-- Ending 2 -->
+    <section id="end">
+        <h2>The End</h2>
 
         <p>
-            Outside, the rain has turned the garden into mud.
-        </p>
-
-        <p>
-            You examine the red-painted garden gate.
+            Maya kept walking.
         </p>
 
         <p>
-            There is black thread caught on one of its hinges.
-        </p>
-
-        <p class="clue">
-            Clue discovered: Black thread on the garden gate.
+            Eventually, the trees disappeared and she found herself
+            standing at the edge of town.
         </p>
 
         <p>
-            Clara was telling the truth about catching her dress on the
-            gate.
+            She never saw the mysterious door again.
         </p>
 
         <p>
-            But that doesn't explain how the thread got inside the locked
-            study.
-        </p>
-
-        <div class="choice">
-            <a href="#storage">Search the storage room.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#ending-clara">Accuse Clara.</a>
-        </div>
-    </section>
-
-
-    <!-- STORAGE -->
-    <section id="storage" class="story">
-        <h2>The Storage Room</h2>
-
-        <p>
-            You unlock the storage room.
+            But sometimes, late at night, she dreamed about it.
         </p>
 
         <p>
-            Inside, you find gardening tools, old furniture, and a coil
-            of black thread.
+            <em>And in her dreams, the door was always open.</em>
         </p>
 
         <p>
-            But there is something else.
+            <a href="#start">Read the story again</a>
         </p>
-
-        <p>
-            A small section of the wall has been recently disturbed.
-        </p>
-
-        <p>
-            Behind it is a narrow passage leading directly toward the
-            study.
-        </p>
-
-        <p class="clue">
-            Clue discovered: A hidden passage.
-        </p>
-
-        <p>
-            The locked-room mystery wasn't a locked-room mystery at all.
-        </p>
-
-        <div class="choice">
-            <a href="#ending-butler">Follow the passage.</a>
-        </div>
-    </section>
-
-
-    <!-- ENDING 1 -->
-    <section id="ending-wrong" class="story ending">
-        <h2>Wrong Accusation</h2>
-
-        <p>
-            You accuse Clara.
-        </p>
-
-        <p>
-            She looks shocked.
-        </p>
-
-        <p>
-            Moments later, you discover the hidden passage behind the
-            storage room.
-        </p>
-
-        <p>
-            Clara could not have used it.
-        </p>
-
-        <p>
-            You accused the wrong person.
-        </p>
-
-        <p>THE END</p>
-
-        <div class="choice">
-            <a href="#start">Start again.</a>
-        </div>
-    </section>
-
-
-    <!-- ENDING 2 -->
-    <section id="ending-clara" class="story ending">
-        <h2>The Wrong Suspect</h2>
-
-        <p>
-            You accuse Clara based on the thread.
-        </p>
-
-        <p>
-            She denies everything.
-        </p>
-
-        <p>
-            Then you notice something.
-        </p>
-
-        <p>
-            The black thread on the garden gate matches Clara's dress,
-            but not the thread found inside the study.
-        </p>
-
-        <p>
-            Someone else planted the evidence.
-        </p>
-
-        <p>
-            You realize the real culprit is still inside the mansion.
-        </p>
-
-        <div class="choice">
-            <a href="#butler">Question Thomas again.</a>
-        </div>
-
-        <div class="choice">
-            <a href="#storage">Search the storage room.</a>
-        </div>
-    </section>
-
-
-    <!-- FINAL ENDING -->
-    <section id="ending-butler" class="story ending">
-        <h2>The Truth</h2>
-
-        <p>
-            You enter the hidden passage.
-        </p>
-
-        <p>
-            At the other end, you find Thomas.
-        </p>
-
-        <p>
-            He is holding a length of black thread.
-        </p>
-
-        <p>
-            "You weren't supposed to find this," he whispers.
-        </p>
-
-        <p>
-            Thomas had entered the study through the hidden passage,
-            poisoned Mr. Blackwood, and escaped before anyone arrived.
-        </p>
-
-        <p>
-            The locked door was only an illusion.
-        </p>
-
-        <p>
-            The clock had been stopped to create a false timeline.
-        </p>
-
-        <p>
-            And the black thread was used to pull the study door shut
-            from the passage.
-        </p>
-
-        <p>
-            You finally understand.
-        </p>
-
-        <h2>The Butler Did It.</h2>
-
-        <p>
-            You solved the mystery.
-        </p>
-
-        <p>THE END</p>
-
-        <div class="choice">
-            <a href="#start">Play again.</a>
-        </div>
     </section>
 
 </div>
